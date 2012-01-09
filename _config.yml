@@ -1,2 +1,20 @@
+title: "SCM Kenny"
+url: "http://wangdingchun.com"
+author: "王丁春"
+email: "nostream@163.com"
+description: "The personal blog of SCM Kenny."
+
+auto: false
+source: .
+paginate: 5
+paginate_files:
+ - index.html
+
+permalink: /:year/:month/:title
+
 markdown: rdiscount
 pygments: true
+
+exclude:
+  - README.markdown
+  - _drafts

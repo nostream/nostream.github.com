@@ -1,24 +1,38 @@
 ---
 layout: default
-title: 王丁春
+title: Home
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+{% for post in paginator.posts %}
+  <article class="post">
 
-  <h1>我的技术文章</h1>
-  <ul class="posts">
-	<li><span>2010-12-28</span> &raquo; <a href="http://nostream.blog.163.com/blog/static/1368408422010112811153695/">jmeter plugins</a></li>
-    <li><span>2010-12-27</span> &raquo; <a href="http://nostream.blog.163.com/blog/static/13684084220101127111113865/">How Apache JMeter simulates multiple users?  </a></li>
-  </ul>
+    <h3><a href="{{ site.url }}{{ post.url }}" rel="bookmark permalink" title="Permanent link to this post">{{ post.title }}</a></h3>
 
-  <h1>收藏文章</h1>
-  <ul class="posts">
-    <li><a href="https://github.com/nostream/maven-bash-completion">maven-bash-completion:</a>This script gives you more to help your daily Maven build.</li>
-  </ul>
+    {{ post.content }}
+
+  <div class="meta">
+   <div class="published">
+      Published: {{ post.date | date: "%Y-%m-%d" }}
+      &mdash;
+      <a href="{{ site.url }}{{ post.url }}#disqus_thread" title="Comments">Comments</a>
+   </div>
+  </div>
+
+
+  </article>
+{% endfor %}
+
+<div class='paging'>
+{% if paginator.previous_page %}
+  {% if paginator.previous_page == 1 %}
+    <a href='/' class='newer'><h1>Newer Posts</h1></a>
+  {% else %}
+    <a href='/page{{paginator.previous_page}}' class='newer'><h1>Newer Posts</h1></a>
+  {% endif %}
+{% endif %}
+{% if paginator.next_page %}
+  <a href='/page{{paginator.next_page}}' class='older'><h1>Older Posts</h1></a>
+{% endif %}
+  
+  <div class='clear'></div>
 </div>

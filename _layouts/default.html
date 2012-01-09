@@ -1,78 +1,94 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>{{ page.title }}</title>
-   <meta name="author" content="nostream" />
-   <link href="http://feeds.feedburner.com/tom-preston-werner" rel="alternate" title="nostream" type="application/atom+xml" />
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="author" content="{{ site.author }}" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="user-scalable=no,width=device-width" />
+    <meta name="keywords" content="SCM Kenny" />
+    <meta name="copyright" content="Copyright 2012 to Present"/>
+    <link href="http://wangdingchun.com/" rel="home" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link type="text/css" rel="stylesheet" media="screen, projection" href="/css/screen.css" /> 
+    <link type="text/css" rel="stylesheet" media="all" href="/css/custom.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" ></script>
+    <!--[if lt IE 8]>
+      <link type="text/css" rel="stylesheet" media="screen, projection" href="/css/ie.css" />
+    <![endif]--> 
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<script type="text/javascript">
+			WebFontConfig = {
+			  custom: { families: ['DroidSansRegular', 'YanoneKaffeesatzRegular'],
+				urls: [ 'http://tjstein.com/css/screen.css' ] }
+			};
 
-   <!-- syntax highlighting CSS -->
-   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+	      (function() {
+	        document.getElementsByTagName("html")[0].className += " wf-loading";
+	        var wf = document.createElement('script');
+	        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+	        wf.type = 'text/javascript';
+	        wf.async = 'true';
+	        var s = document.getElementsByTagName('script')[0];
+	        s.parentNode.insertBefore(wf, s);
+	      })();
+	</script>
+  {% include google_analytics.html %}	
+  </head>
+  <body>
+    <div class="container">
+      <header class="span-21 last" id="header">
+        <h1><a href="{{ site.url }}" rel="home bookmark">{{ site.title }}</a></h1>
+      </header>
 
-   <!-- Homepage CSS -->
-   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+      <div class="span-16" id="content">
+        {{ content }}
+      </div>
+      <div class="span-5 last" id="sidebar">
+        <div class="sidebarbox"> 
+          <h4>Pages</h4> 
+          <ul id="pages">
+	        <li>
+              <a rel="bookmark" title="Home" href="{{ site.url }}/">Home</a>
+            </li>
+            <li>
+              <a rel="bookmark" title="About" href="{{ site.url }}/about">About</a>
+            </li>
+            <li>
+              <a rel="bookmark" title="Archives" href="{{ site.url }}/archives" id="archives">Archives</a> 
+            </li>
+          </ul>
+        </div>
+        <div class="sidebarbox"> 
+          <h4>Elsewhere</h4> 
+          <ul> 
+            <li> 
+              <a rel="bookmark" title="weibo" href="http://weibo.com/u/1639635743" class="icon-link" id="flickr-link">weibo</a> 
+            </li> 
+          </ul> 
+        </div>
+        <div class="sidebarbox"> 
+          <h4>Contact Me</h4> 
+          <ul> 
+            <li> 
+              <a rel="bookmark" title="Email" href="mailto:nostream@163.com" class="icon-link" id="gmail-link">Gmail</a> 
+            </li> 
+          </ul> 
+        </div> 
+      </div>
 
-   <!-- Typekit -->
-   <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
-   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-</head>
-<body>
-
-<!-- ClickTale Top part -->
-<script type="text/javascript">
-var WRInitTime=(new Date()).getTime();
-</script>
-<!-- ClickTale end of Top part -->
-
-<div class="site">
-  <div class="title">
-    <a href="/">王丁春的技术博客</a>
-    <a class="extra" href="/">home</a>
-  </div>
-  
-  {{ content }}
-  
-  <div class="footer">
-    <div class="contact">
-      <p>
-        kenny wang<br />
-        Cofounder of <a href="http://github.com/">GitHub</a><br />
-        nostream@163.com
-      </p>
+      <footer class="span-21 last" id="footer">
+        All content copyright &copy; SCM Kenny. Written in mostly valid <a href="http://validator.w3.org/check?uri=http%3A%2F%2Ftjstein.com%2F" title="Valid HTML5" rel="external" target="_blank">HTML5</a> and <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Ftjstein.com&amp;profile=css3&amp;usermedium=all&amp;warning=1" title="Valid CSS3" rel="external" target="_blank">CSS3</a>. Powered by <a href="http://github.com/mojombo/jekyll" title="The Jekyll (static site generator) code repository" rel="external" target="_blank">Jekyll</a>.
+      </footer>
     </div>
-    <div class="contact">
-      <p>
-        <a href="http://github.com/nostream/">github.com/nostream</a><br />
-        <a href="http://twitter.com/nostream/">twitter.com/nostream</a><br />
-        <a href="http://flickr.com/photos/nostream/">flickr.com/photos/nostream</a>
-      </p>
-    </div>
-  </div>
-</div>
 
-<a href="http://github.com/nostream"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
-
-<!-- ClickTale Bottom part -->
-<div id="ClickTaleDiv" style="display: none;"></div>
-<script type="text/javascript">
-if(document.location.protocol!='https:')
-  document.write(unescape("%3Cscript%20src='http://s.clicktale.net/WRb.js'%20type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-if(typeof ClickTale=='function') ClickTale(206,0.3,"www03");
-</script>
-<!-- ClickTale end of Bottom part -->
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-6016902-1");
-pageTracker._trackPageview();
-</script>
-<!-- Google Analytics end -->
-
-</body>
+    {% include disqus.html %}
+	<script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
 </html>
