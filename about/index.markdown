@@ -11,5 +11,3 @@ title: About
 邮箱 nostream@163.com
 工作 4 year
 {% endhighlight %}
-
-<h2>Other</h2>
