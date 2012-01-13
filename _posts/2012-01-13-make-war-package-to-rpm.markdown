@@ -1,15 +1,15 @@
 ---
 layout: post
-title: ��java��Ŀ�����rpm��ʽ
-excerpt: java��Ŀ������������RHELƽ̨��rpm��ʽ���ļ���RHELƽ̨�ϲ���ǳ�����
+title: 将java项目打包成rpm格式
+excerpt: java项目基本都部署在RHEL平台，rpm格式的文件在RHEL平台上部署非常方便
 comments: true
 ---
 
-��ǰjava webӦ���Ǳ�������war���ģ�war���Ĺ����������о������Ǻܷ��㣬���ѧϰ����linux����rpm���Ĺ������о�ͦ�õġ�
+以前java web应用是编译生成war包的，war包的管理和升级感觉都不是很方便，最近学习了下linux下面rpm包的管理，感觉挺好的。
 
-���ڵ����̽�����õ�java�ļ�������rpm�������µ�ʱ��ֻ��Ҫʹ��rpm -ivh **.rpm�����ˣ�ж�ظ�����rpm -e **.rpm
+现在的流程讲编译好的java文件制作成rpm包，更新的时候只需要使用rpm -ivh **.rpm就行了，卸载更方便rpm -e **.rpm
 
-������һ���򵥵�rpm spec�ļ�
+下面是一个简单的rpm spec文件
 
 {% highlight bash %}
 summary: sso login
