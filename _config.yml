@@ -1,16 +1,15 @@
-title: "SCM Kenny"
+title: "Íõ¶¡´ºµÄ¸öÈË²©¿Í"
 url: "http://wangdingchun.com"
-author: "ç‹ä¸æ˜¥"
-email: "nostream@163.com"
-description: "The personal blog of SCM Kenny."
+author: "dcwang"
+email: "nostream@163.comm"
+description: "dcwang blog"
 
 auto: false
 source: .
-paginate: 5
+paginate: 10
 paginate_files:
  - index.html
 
-permalink: /:year/:month/:title
 
 markdown: rdiscount
 pygments: true

@@ -27,47 +27,13 @@ task :server => [:clean]  do
   jekyll('--server --auto')
 end
 
-desc 'Deploy to production'
+desc 'Build & Deploy'
 task :deploy do
-  puts '* Publishing files to production server'
   sh "rsync -rtzh --delete _site/ --rsh='ssh -p43102' deploy@tjstein.com:/var/www/tjstein.com/public"
-end
-
-desc 'rsync the contents of ./_site to the staging path on the server'
-task :stage do
-  puts '* Publishing files to staging server'
-  sh "rsync -rtzh --delete _site/ --rsh='ssh -p43102' deploy@tjstein.com:/var/www/stage.tjstein.com/public"
-end
-
-##
-# Package Requirement:
-# jpegoptim
-# Install OSX:
-# brew install jpegoptim
-# Install Ubuntu:
-# [apt-get | aptitude] install jpegoptim
-#
-desc 'Optimize JPG images in output/images directory using jpegoptim'
-task :jpg do
-  puts `find _site/images -name '*.jpg' -exec jpegoptim {} \\;`
-end
-
-##
-# Package Requirement:
-# optipng
-# Install OSX:
-# brew install optipng
-# Install Ubuntu:
-# [apt-get | aptitude] install optipng
-#
-desc 'Optimize PNG images in output/images directory using optipng'
-task :png do
-  puts `find _site/images -name '*.png' -exec optipng {} \\;`
 end
 
 desc 'Minify CSS & HTML'
 task :minify do
-  puts '* Minifying CSS and HTML'
   sh 'java -jar ~/.java/yuicompressor-2.4.2.jar --type css css/print.css -o _site/css/print.css'
   sh 'java -jar ~/.java/yuicompressor-2.4.2.jar --type css css/screen.css -o _site/css/screen.css'
   sh 'java -jar ~/.java/yuicompressor-2.4.2.jar --type css css/custom.css -o _site/css/custom.css'
