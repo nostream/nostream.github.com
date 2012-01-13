@@ -7,7 +7,7 @@ comments: true
 
 以前java web应用是编译生成war包的，war包的管理和升级感觉都不是很方便，最近学习了下linux下面rpm包的管理，感觉挺好的。
 
-现在的流程讲编译好的java文件制作成rpm包，更新的时候只需要使用rpm -ivh **.rpm就行了，卸载更方便rpm -e **.rpm
+现在的流程讲编译好的java文件制作成rpm包，更新的时候只需要使用rpm -ivh *.rpm就行了,卸载更方便 rpm -e *.rpm
 
 下面是一个简单的rpm spec文件
 
