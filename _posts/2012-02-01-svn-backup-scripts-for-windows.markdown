@@ -1,13 +1,13 @@
 ---
 layout: post
-title: SVN°æ±¾¿âÈ«Á¿ºÍÔöÁ¿±¸·Ý½Å±¾(windowsÆ½Ì¨)
-excerpt: SVN°æ±¾¿âÈ«Á¿ºÍÔöÁ¿±¸·Ý½Å±¾£¬Ôö¼ÓÁË±¸·ÝÍê³É·¢ËÍÓÊ¼þµÄ¹¦ÄÜ
+title: SVNç‰ˆæœ¬åº“å…¨é‡å’Œå¢žé‡å¤‡ä»½è„šæœ¬(windowså¹³å°)
+excerpt: SVNç‰ˆæœ¬åº“å…¨é‡å’Œå¢žé‡å¤‡ä»½è„šæœ¬ï¼Œå¢žåŠ äº†å¤‡ä»½å®Œæˆå‘é€é‚®ä»¶çš„åŠŸèƒ½
 comments: true
 ---
 
-ÒÔÇ°Ð´¹ýlinuxÆ½Ì¨µÄSVN±¸·Ý½Å±¾£¬ÏÖÔÚµÄµ¥Î»µÄ°æ±¾¿âÊÇÔÚwindowsÆ½Ì¨µÄ£¬ÓÉÓÚÀúÊ·Ô­Òò£¬ÔÝ²»×öÇ¨ÒÆ£¬ËùÒÔÐ´ÁËwindowsÆ½Ì¨µÄ±¸·Ý½Å±¾
+ä»¥å‰å†™è¿‡linuxå¹³å°çš„SVNå¤‡ä»½è„šæœ¬ï¼ŒçŽ°åœ¨çš„å•ä½çš„ç‰ˆæœ¬åº“æ˜¯åœ¨windowså¹³å°çš„ï¼Œç”±äºŽåŽ†å²åŽŸå› ï¼Œæš‚ä¸åšè¿ç§»ï¼Œæ‰€ä»¥å†™äº†windowså¹³å°çš„å¤‡ä»½è„šæœ¬
 
-1 È«Á¿±¸·Ý½Å±¾
+1 å…¨é‡å¤‡ä»½è„šæœ¬
 {% highlight dos %}
 @echo off
 
@@ -19,55 +19,55 @@ rem # Contact: nostream@163.com
 rem # Version: 1.0.0
 rem ######################################################
 
-rem ¶¨ÒåÈÕÆÚ¸ñÊ½
+rem å®šä¹‰æ—¥æœŸæ ¼å¼
 set time_hh=%time:~0,2%
 if /i %time_hh% LSS 10 (set time_hh=0%time:~1,1%)
 set DT=%date:~,4%%date:~5,2%%date:~8,2%
 set DA=%date:~,4%%date:~5,2%%date:~8,2%_%time_hh%%time:~3,2%%time:~6,2%
 
-rem ¶¨ÒåÓÊ¼þÐÅÏ¢
+rem å®šä¹‰é‚®ä»¶ä¿¡æ¯
 set from=scm@shunwang.com
 set server=smtp.shunwang.com
 set to=dc.wang@shunwang.com
-set subj1=SVN°æ±¾¿âÈ«Á¿±¸·ÝÍê³É
-set subj2=SVN°æ±¾¿âÈ«Á¿±¸·ÝÊ§°Ü
+set subj1=SVNç‰ˆæœ¬åº“å…¨é‡å¤‡ä»½å®Œæˆ
+set subj2=SVNç‰ˆæœ¬åº“å…¨é‡å¤‡ä»½å¤±è´¥
 
-rem SubversionµÄ°²×°Ä¿Â¼
+rem Subversionçš„å®‰è£…ç›®å½•
 set SVN_HOME="C:\Progra~1\Visual~1\bin"
 set SVN_LOOK=%SVN_HOME%\svnlook.exe
-rem ËùÓÐ°æ±¾¿âµÄ¸ùÄ¿Â¼
+rem æ‰€æœ‰ç‰ˆæœ¬åº“çš„æ ¹ç›®å½•
 set SVN_ROOT=D:\Reposi~1
-rem ±¸·ÝÄ¿Â¼
+rem å¤‡ä»½ç›®å½•
 set BACKUP_SVN_ROOT=E:\svn_full_backup
 set BACKUP_DIRECTORY=%BACKUP_SVN_ROOT%\%DA%
-rem È«Á¿±¸·Ý½Å±¾Ä¿Â¼
+rem å…¨é‡å¤‡ä»½è„šæœ¬ç›®å½•
 set FULL_PATH=E:\svn_back_scripts\fullbackup
-rem ÔöÁ¿±¸·Ý½Å±¾Ä¿Â¼
+rem å¢žé‡å¤‡ä»½è„šæœ¬ç›®å½•
 set INCRE_PATH=E:\svn_back_scripts\increment
 
 echo "-------------------------------------" >> %FULL_PATH%/fullbackup.log
 echo "-------------------------------------" >> %FULL_PATH%/fullbackup.log
-echo "±¸·ÝÈÕÆÚ %date:~0,10% " >> %FULL_PATH%/fullbackup.log
+echo "å¤‡ä»½æ—¥æœŸ %date:~0,10% " >> %FULL_PATH%/fullbackup.log
 
 if exist %BACKUP_DIRECTORY% (
-	echo ±¸·ÝÄ¿Â¼%BACKUP_DIRECTORY%ÒÑ¾­´æÔÚ£¬ÇëÇå¿Õ>> %FULL_PATH%/fullbackup.log
+	echo å¤‡ä»½ç›®å½•%BACKUP_DIRECTORY%å·²ç»å­˜åœ¨ï¼Œè¯·æ¸…ç©º>> %FULL_PATH%/fullbackup.log
 ) else (
-	echo ½¨Á¢±¸·ÝÄ¿Â¼%BACKUP_DIRECTORY% >> %FULL_PATH%/fullbackup.log
+	echo å»ºç«‹å¤‡ä»½ç›®å½•%BACKUP_DIRECTORY% >> %FULL_PATH%/fullbackup.log
 	mkdir %BACKUP_DIRECTORY%
 )
 
-rem ±¸·ÝÓÃ»§ºÍÈ¨ÏÞÎÄ¼þ
+rem å¤‡ä»½ç”¨æˆ·å’Œæƒé™æ–‡ä»¶
 xcopy %SVN_ROOT%\authz %BACKUP_DIRECTORY%
 xcopy %SVN_ROOT%\htpasswd %BACKUP_DIRECTORY%
 
-rem ÑéÖ¤Ä¿Â¼ÊÇ·ñÎª°æ±¾¿â£¬Èç¹ûÊÇÔòÈ¡³öÃû³Æ±¸·Ý
+rem éªŒè¯ç›®å½•æ˜¯å¦ä¸ºç‰ˆæœ¬åº“ï¼Œå¦‚æžœæ˜¯åˆ™å–å‡ºåç§°å¤‡ä»½
 for /r %SVN_ROOT% %%I in (.) do (
 	if exist "%%I\conf\svnserve.conf" (
 		call :hotcopy %%~fI %%~nI
 	)
 )
 
-rem ·¢ËÍÓÊ¼þÍ¨ÖªSCM°æ±¾¿â±¸·Ý½á¹û
+rem å‘é€é‚®ä»¶é€šçŸ¥SCMç‰ˆæœ¬åº“å¤‡ä»½ç»“æžœ
 if %errorlevel% == 0 (
    blat %FULL_PATH%\fullbackup.log -to %to% -base64 -charset GB2312 -subject %subj1% -server %server% -f %from%
 ) else (
@@ -77,11 +77,11 @@ if %errorlevel% == 0 (
 
 :hotcopy
 if "%2"=="" (
-	echo °æ±¾¿â±¸·ÝÍê³É
+	echo ç‰ˆæœ¬åº“å¤‡ä»½å®Œæˆ
 ) else (
-	echo ×¼±¸¿ªÊ¼È«Á¿±¸·Ý°æ±¾¿â%1 >> %FULL_PATH%/fullbackup.log
+	echo å‡†å¤‡å¼€å§‹å…¨é‡å¤‡ä»½ç‰ˆæœ¬åº“%1 >> %FULL_PATH%/fullbackup.log
 	%SVN_HOME%\svnadmin hotcopy %1 %BACKUP_DIRECTORY%\%2
-	echo °æ±¾¿â%2±¸·ÝÍê³É >> %FULL_PATH%/fullbackup.log
+	echo ç‰ˆæœ¬åº“%2å¤‡ä»½å®Œæˆ >> %FULL_PATH%/fullbackup.log
 	if not exist %INCRE_PATH%\%2 mkdir %INCRE_PATH%\%2
 	%SVN_LOOK% youngest %1 > %INCRE_PATH%\%2\%2_last_revision.txt
 )
@@ -89,7 +89,7 @@ goto :EOF
 
 {% endhighlight %}
 
-2 ÔöÁ¿±¸·Ý½Å±¾
+2 å¢žé‡å¤‡ä»½è„šæœ¬
 {% highlight dos %}
 @echo off
 
@@ -101,45 +101,45 @@ rem # Contact: nostream@163.com
 rem # Version: 1.0.0
 rem ######################################################
 
-rem ¶¨ÒåÈÕÆÚ¸ñÊ½
+rem å®šä¹‰æ—¥æœŸæ ¼å¼
 set time_hh=%time:~0,2%
 if /i %time_hh% LSS 10 (set time_hh=0%time:~1,1%)
 set DT=%date:~,4%%date:~5,2%%date:~8,2%
 set DA=%date:~,4%%date:~5,2%%date:~8,2%_%time_hh%%time:~3,2%%time:~6,2%
 
-rem ¶¨ÒåÓÊ¼þÐÅÏ¢
+rem å®šä¹‰é‚®ä»¶ä¿¡æ¯
 set from=scm@shunwang.com
 set server=smtp.shunwang.com
 set to=dc.wang@shunwang.com
-set subj1=SVN°æ±¾¿âÔöÁ¿±¸·ÝÍê³É
-set subj2=SVN°æ±¾¿âÔöÁ¿±¸·ÝÊ§°Ü
+set subj1=SVNç‰ˆæœ¬åº“å¢žé‡å¤‡ä»½å®Œæˆ
+set subj2=SVNç‰ˆæœ¬åº“å¢žé‡å¤‡ä»½å¤±è´¥
 
-rem SubversionµÄ°²×°Ä¿Â¼¼°Ö´ÐÐÎÄ¼þ
+rem Subversionçš„å®‰è£…ç›®å½•åŠæ‰§è¡Œæ–‡ä»¶
 set SVN_HOME="C:\Progra~1\Visual~1\bin"
 set SVN_ADMIN=%SVN_HOME%\svnadmin.exe
 set SVN_LOOK=%SVN_HOME%\svnlook.exe
 
-rem ÅäÖÃ¿â²Ö¿â¸ùÄ¿Â¼
+rem é…ç½®åº“ä»“åº“æ ¹ç›®å½•
 set SVN_REPOROOT=D:\Reposi~1
 
-rem ÔöÁ¿±¸·ÝÎÄ¼þ´æ·ÅÂ·¾¶
+rem å¢žé‡å¤‡ä»½æ–‡ä»¶å­˜æ”¾è·¯å¾„
 set INCRE_BACKUP=E:\svn_increment_backup
 
-rem ÔöÁ¿±¸·Ý½Å±¾Ä¿Â¼
+rem å¢žé‡å¤‡ä»½è„šæœ¬ç›®å½•
 set INCRE_PATH=E:\svn_back_scripts\increment
 
 echo "-------------------------------------" >> %INCRE_PATH%/incre.log
 echo "-------------------------------------" >> %INCRE_PATH%/incre.log
-echo "±¸·ÝÈÕÆÚ %date:~0,10% " >> %INCRE_PATH%/incre.log
+echo "å¤‡ä»½æ—¥æœŸ %date:~0,10% " >> %INCRE_PATH%/incre.log
 
-rem ÑéÖ¤Ä¿Â¼ÊÇ·ñÎª°æ±¾¿â£¬Èç¹ûÊÇÔòÈ¡³öÃû³Æ±¸·Ý
+rem éªŒè¯ç›®å½•æ˜¯å¦ä¸ºç‰ˆæœ¬åº“ï¼Œå¦‚æžœæ˜¯åˆ™å–å‡ºåç§°å¤‡ä»½
 for /r %SVN_ROOT% %%I in (.) do (
 	if exist "%%I\conf\svnserve.conf" (
 		call :incre_dump %%~nI
 	)
 )
 
-rem ·¢ËÍÓÊ¼þÍ¨ÖªSCM°æ±¾¿â±¸·Ý½á¹û
+rem å‘é€é‚®ä»¶é€šçŸ¥SCMç‰ˆæœ¬åº“å¤‡ä»½ç»“æžœ
 if %errorlevel% == 0 (
    blat %INCRE_PATH%\incre.log -to %to% -base64 -charset GB2312 -subject %subj1% -server %server% -f %from%
 ) else (
@@ -155,43 +155,43 @@ SET LOWER=0
 SET UPPER=0
 
 if not exist %INCRE_PATH%\%PROJECT% mkdir %INCRE_PATH%\%PROJECT%
-echo ÏîÄ¿¿â%PROJECT%¿ªÊ¼±¸·Ý>> %INCRE_PATH%/incre.log
+echo é¡¹ç›®åº“%PROJECT%å¼€å§‹å¤‡ä»½>> %INCRE_PATH%/incre.log
 %SVN_LOOK% youngest %SVN_REPOROOT%\%PROJECT%> %INCRE_PATH%\A.TMP
 FOR /f %%D IN (%INCRE_PATH%\A.TMP) DO set UPPER=%%D
 if %UPPER%==0 GOTO :N_EXIT
 if not exist %INCRE_PATH%\%PROJECT%\%PROJECT%_last_revision.txt GOTO :BACKUP
 
-rem È¡³öÉÏ´Î±¸·ÝºóµÄ°æ±¾ºÅ£¬²¢×ö£«1´¦Àí(×¢Òâ´ËËã·¨Î´ÔÚ98ÏµÍ³ÑéÖ¤)
+rem å–å‡ºä¸Šæ¬¡å¤‡ä»½åŽçš„ç‰ˆæœ¬å·ï¼Œå¹¶åšï¼‹1å¤„ç†(æ³¨æ„æ­¤ç®—æ³•æœªåœ¨98ç³»ç»ŸéªŒè¯)
 FOR /f %%C IN (%INCRE_PATH%\%PROJECT%\%PROJECT%_last_revision.txt) DO set LOWER=%%C
 set /A LOWER=%LOWER%+1
 
-rem ²»ÐèÒª±¸·Ý£¬ÔòÌø×ª½áÊø
+rem ä¸éœ€è¦å¤‡ä»½ï¼Œåˆ™è·³è½¬ç»“æŸ
 IF %LOWER% gtr %UPPER% GOTO :N_EXIT
 
 :BACKUP
 SET FILENAME=%PROJECT%_%LOWER%_%UPPER%
-echo ¿ªÊ¼±¸·ÝÏîÄ¿¿â£º%PROJECT%£¬Éú³ÉÎÄ¼þ=%FILENAME% >> %INCRE_PATH%/incre.log
+echo å¼€å§‹å¤‡ä»½é¡¹ç›®åº“ï¼š%PROJECT%ï¼Œç”Ÿæˆæ–‡ä»¶=%FILENAME% >> %INCRE_PATH%/incre.log
 %SVN_ADMIN% dump %SVN_REPOROOT%\%PROJECT% -r %LOWER%:head --incremental >%FILENAME%.dmp
 
-rem ×¼±¸Ð´±¸·ÝÈÕÖ¾ÐÅÏ¢
+rem å‡†å¤‡å†™å¤‡ä»½æ—¥å¿—ä¿¡æ¯
 IF %LOWER% gtr 0 GOTO :WRITENOTE
-echo %PROJECT%±¸·ÝÊ±¼ä: %date% >> %INCRE_PATH%/incre.log
-echo %PROJECT%±¸·ÝrevisionÇø¼ä ´Ó[%LOWER%]µ½[%UPPER%] >> %INCRE_PATH%/incre.log
+echo %PROJECT%å¤‡ä»½æ—¶é—´: %date% >> %INCRE_PATH%/incre.log
+echo %PROJECT%å¤‡ä»½revisionåŒºé—´ ä»Ž[%LOWER%]åˆ°[%UPPER%] >> %INCRE_PATH%/incre.log
 GOTO :COMPLETE
 
 :WRITENOTE
 echo %date% >> %INCRE_PATH%/incre.log
-echo °æ±¾¿â%PROJECT%ÎÄ¼þÎª¿Õ >> %INCRE_PATH%/incre.log
+echo ç‰ˆæœ¬åº“%PROJECT%æ–‡ä»¶ä¸ºç©º >> %INCRE_PATH%/incre.log
 
 :COMPLETE
-rem ÏÂÃæÒ»ÐÐÓÃÓÚ¿½±´±¸·ÝÎÄ¼þµ½Ä¿±êµØÖ·
-echo ½«dump±¸·ÝÎÄ¼þ%FILENAME%.dmp ×ªÒÆÖÁ%INCRE_BACKUP%\%PROJECT% Ä¿Â¼ÏÂ >> %INCRE_PATH%/incre.log
+rem ä¸‹é¢ä¸€è¡Œç”¨äºŽæ‹·è´å¤‡ä»½æ–‡ä»¶åˆ°ç›®æ ‡åœ°å€
+echo å°†dumpå¤‡ä»½æ–‡ä»¶%FILENAME%.dmp è½¬ç§»è‡³%INCRE_BACKUP%\%PROJECT% ç›®å½•ä¸‹ >> %INCRE_PATH%/incre.log
 move %FILENAME%.dmp %INCRE_BACKUP%\%PROJECT%\
 del %INCRE_PATH%\A.TMP
 echo %UPPER% > %INCRE_PATH%\%PROJECT%\%PROJECT%_last_revision.txt
 
 :N_EXIT
-echo ÏîÄ¿¿â%PROJECT%´¦Àí½áÊø£¡>> %INCRE_PATH%/incre.log
+echo é¡¹ç›®åº“%PROJECT%å¤„ç†ç»“æŸï¼>> %INCRE_PATH%/incre.log
 exit /B
 
 :no_args
