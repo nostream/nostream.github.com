@@ -8,7 +8,9 @@ comments: true
 以前写过linux平台的SVN备份脚本，现在的单位的版本库是在windows平台的，由于历史原因，暂不做迁移，所以写了windows平台的备份脚本
 
 1 全量备份脚本
+
 {% highlight dos %}
+
 @echo off
 
 rem ######################################################
@@ -90,7 +92,9 @@ goto :EOF
 {% endhighlight %}
 
 2 增量备份脚本
+
 {% highlight dos %}
+
 @echo off
 
 rem ######################################################
