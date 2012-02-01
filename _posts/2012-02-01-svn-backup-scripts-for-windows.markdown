@@ -9,6 +9,7 @@ comments: true
 
 1 全量备份脚本
 
+{% highlight bash %}
 @echo off
 
 rem ######################################################
@@ -87,8 +88,10 @@ if "%2"=="" (
 )
 goto :EOF
 
-2 增量备份脚本
+{% endhighlight %}
 
+2 增量备份脚本
+{% highlight bash %}
 @echo off
 
 rem ######################################################
@@ -194,3 +197,5 @@ exit /B
 
 :no_args
 ECHO ON
+
+{% endhighlight %}
